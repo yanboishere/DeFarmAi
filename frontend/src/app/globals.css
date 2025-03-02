@@ -1,6 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 248, 250, 252;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,33 +19,34 @@
   }
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* Custom styles for risk tags */
+.risk-low {
+  @apply bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-sm;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.risk-medium {
+  @apply bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full text-sm;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.risk-high {
+  @apply bg-red-100 text-red-800 px-2 py-0.5 rounded-full text-sm;
+}
+
+/* Ant Design overrides */
+.ant-btn-primary {
+  background-color: #1677ff !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1677ff !important;
+}
+
+.ant-tabs-ink-bar {
+  background: #1677ff !important;
 }
